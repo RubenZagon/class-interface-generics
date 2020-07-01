@@ -5,16 +5,16 @@ package encryptor;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-public class Cache {
+public class Cache<T> {
 
-    private Dictionary<Object, Object> items = new Hashtable<>();
+    private Dictionary<Object, T> items = new Hashtable<Object, T>();
 
 
-    public void addItem(String key, Object item) {
+    public void addItem(String key, T item) {
         items.put(key, item);
     }
 
-    public Object getItem(Object key) {
+    public T getItem(Object key) {
         return items.get(key);
     }
 }

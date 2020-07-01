@@ -31,23 +31,23 @@ public class TestExample {
 
     @Test
     public void test_generics() {
-        Cache greetingsCache = new Cache();
+        Cache greetingsCache = new Cache<String>();
         greetingsCache.addItem("saludo", "hola.¿qué tal estas?");
         greetingsCache.addItem("despedida", "adios");
         // Aquí se ve claramente que tenemos que castearlo a String
         // para poder utilizar el método replace
         Object item = greetingsCache.getItem("saludo");
-        String result = ((String) item).replace(".", "-");
+        String result = item.replace(".", "-");
         assertThat(result).isEqualTo("hola-¿qué tal estas?");
 
 
-        Cache numbersCache = new Cache();
+        Cache numbersCache = new Cache<Integer>();
         numbersCache.addItem("first", 1);
         numbersCache.addItem("second", 2);
         // Aquí se ve claramente que tenemos que castearlo a Integer
         // para poder realizar al suma
         Object cacheItem = numbersCache.getItem("first");
-        Integer result2 = ((Integer)cacheItem) + 4;
+        Integer result2 = cacheItem + 4;
         assertThat(result2).isEqualTo(5);
     }
 
